@@ -1,0 +1,132 @@
+School Management System(SMS)
+----....----....----....----
+SMS has Stakeholders ..> Students, Teachers, Parents
+
+- 50yrs back
+  Pass% ..> 20% or 30%
+  
+  1 Final Exam ..> End of Year
+  Behaviour of Stakeholders
+  ----....----....----....-
+  - Students ..> Not Study from Day1
+  - Teachers ..> Not Teach from Day1
+  - Parents  ..> Worry about Students
+  After Final Exam Pass% was Very Low
+  
+- 30yrs back
+  Pass% ..> 80%
+  
+  5 Exam's ..> UnitTest, Quaterly, Half Yearly, Pre Final, Final
+  Behaviour of Stakeholders
+  ----....----....----....-
+  - Students ..> Not Study from Day1, will Start after a week
+  - Teachers ..> Teach from Day1
+  - Parents  ..> Take Serious from Day1
+  After UnitTest1 ..> Pass% is 30% 
+  
+  - Parents, Teachers ..> UnderStand Students Behaviour, Guide them
+  After UnitTest2 ..> Pass% is 32% 
+  .
+  .
+  .
+  Final Exam ..> 80%
+  
+- 10yrs back
+  Pass% ..> Max 99%
+  
+ 
+  5 Exam's + SlipTest's
+  Every Day ..> 1 SlipTest, Micro Management on Students
+  365 Days ..> 250 Tests
+ 
+  Final Exam ..> 99%
+ 
+Result ..> More Test ..> More Pass%
+
+----------------.......................
+Software Development LifeCycle (SDLC)
+----....----....----....----....----
+1. Requirements
+2. Planning
+3. Design
+4. Developing
+5. Deployment
+6. Testing
+7. Maintainance
+
+WaterFall Model
+----....----...
+10ys Back
+Stakeholders ..> Customers, Developers, Testers, Managers, End-Users, ..etc
+
+* 2yrs to Complete Project
+
+Behaviour of Stakeholders
+----....----....----....-
+- Developers ..> Not Start from Day1
+- Testers    ..> Not Start from Day1
+- Customers  ..> Worry from Day1
+
+Still 1yr ..> Time-Pass with Meetings
+After 1yr ..> Developers       ..> 6 Months Develop
+     Release-Engineer ..> Deploy Code to Dev Env
+     Testers         ..> Keep on Report Bugs to Developers 
+    Ex: Testers Report ..> 30 Bugs
+      valid Bugs   ..> 20
+      Invalid Bugs ..> 10
+     Cold-War Between Developers and Testers
+     
+  Time Line Done ..> Deliver Software
+  Customers ..> Expecting BMW
+      ..> Got Maruthi 800
+  
+  Customers Dissapointed ..> Penality to Company, ..etc
+
+Agile Model
+----....---
+Deliver Product in Sprints
+
+Application Divided into Modules, Pick Each Module in Sprint & Deliver it
+
+Deliver Module1 ..> 1 Month
+----....----....----....---
+Development ..> 15 Days
+Testing     ..> 15 Days
+
+Devlopers Developing Module then Tester Ideal
+Testers Testing Module then Developers Ideal
+
+Bugs ..> 30 (20 Valid, 10 Invalid)
+ Fight with Developers & Testers
+ 
+Deliver to Client After 1 month
+Client ..> Test Module, Get 5 Bugs, Send to Bugs Tester's
+
+Deliver Module2 + Bugs ..> 1 Month
+----....----....----....----....--
+.
+.
+.
+.
+
+Product Development Done ..> Deliver to Client
+Customers ..> Expecting BMW
+    ..> Got Fortuner
+    
+    
+DevOps with Agile Model
+----....----....----...
+Developers develop code, Same Day Build,Compile,Test
+
+- Day1
+ Developers Write 100 lines ..> Testing is Simple
+ No Invalid Bugs, Some Valid Bugs ..> Easy to Solve Bugs
+ .
+ .
+ .
+Ops ..> Testing, Build, Release-Engineer
+We are calling Release-Engineer as DevOps
+
+As DevOps Engineer ..> Automate Proccess of Build,Compile,Deploy via CICD with help of Tools in Multiple Environments
+
+Environments ..> DEV QA UAT PRE-PROD PROD
