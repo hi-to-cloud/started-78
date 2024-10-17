@@ -1,0 +1,114 @@
+Package Management
+----....----....--
+
+Redhat9/Amazon Linux-2023
+
+Package manager
+----....----...
+Will Install Dependencies at go
+yum ~~ dnf
+
+Linux Connect to Internet ..> Download Packages
+
+Where URL's Configured
+----....----....----..
+cd /etc/yum.repos.d/
+
+ls -l
+total 8
+-rw-r--r--. 1 root root 968 Oct  9 18:14 amazonlinux.repo
+-rw-r--r--. 1 root root 689 Oct  9 18:14 kernel-livepatch.repo
+
+Install git?
+----....----
+dnf install git
+
+List of Packages Installed
+----....----....----....--
+dnf list installed
+dnf list installed | wc -l
+147
+
+List of Packages Available
+----....----....----....--
+dnf list available | wc -l
+12457
+
+Uninstall git?
+----....----..
+dnf remove git -y
+
+CPU Info ..> cat /proc/cpuinfo
+Memory Info ..> cat /proc/meminfo
+OS Info ..> cat /etc/os-release
+
+Service Management
+----....----....--
+Service ..> Start, Stop, Restart, Enable, Disable
+
+Check SSH Running or Not
+----....----....----....
+systemctl status sshd
+
+Install Package
+----....----...
+dnf install nginx -y
+
+systemctl status nginx
+systemctl start nginx
+systemctl enable nginx
+
+http://52.206.99.93/ -- SG -- Port 80 Allwed or Not -- EC2
+
+View Network Configuration
+----....----....----....--
+ifconfig 
+
+Process Management
+----....----....--
+Every Process Should have an ID for Tracking Purpose
+
+Root Process ..> Child Process
+
+List of all Process in Linux
+----....----....----....----
+ps -ef 
+ps -ef | wc -l
+107
+
+PID ..> Process ID 
+PPID ..> Parent Process ID
+
+ps -ef | grep nginx
+
+Foreground Process 
+----....----....--
+sleep 10 //blocks screen for 10 sec
+
+Background Process 
+----....----....--
+sleep 10 & //run command in background
+
+real-time view of the system's processes and resource usage
+----....----....----....----....----....----....----....---
+top
+
+Kill Process
+----....----
+kill ..> request to stop
+kill -9 ..> force to stop
+
+Network Management
+----....----....--
+
+Check Ports opened or not
+----....----....----....-
+netstat
+
+netstat -l //list
+
+netstat -lt //list of tcp protocol
+
+netstat -ltp //list of tcp protocol with PID
+
+netstat -ltpn //list of tcp protocol with PID + port number
