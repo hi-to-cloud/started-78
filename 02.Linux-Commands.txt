@@ -1,0 +1,99 @@
+Linux Commands
+----....----..
+uname ..> name of kernel
+uname -a ..> Info of kernel
+
+Copy File
+----....-
+cp /etc/passwd .
+
+cut/rename file 
+mv passwd users
+
+Search String
+----....----.
+grep sbin users
+
+grep -i sbin users //ignore case sensitive
+
+Download Files 
+----....----..
+wget <URL> ..> wget = World Wide Web Get
+curl <URL> ..> curl = client URL
+
+wget ..> simply download files
+curl ..> show text directly on console
+
+CUT String
+----....--
+cut -d "/" -f1/-f2/-f3....
+
+echo "Hello/Hi" | cut -d "/" -f1
+echo "Hello/Hi" | cut -d "/" -f2
+
+AWK String
+----....--
+awk -F "/" '{print $1F, $2F}'
+
+echo "Hello/Hi" | awk -F "/" '{print $1F}'
+awk -F "/" '{print $1F, $NF}' users
+
+Head
+----
+head users // first 10 lines
+head -n 5 users // first 5 lines
+
+tail
+----
+tail users // last 10 lines
+tail -n 20 users // last 20 lines
+
+tail -f /var/log/msg //see running logs
+
+Text Editor ..> vim
+----....----....---
+Modes of VIM ..> 3 ..> ESC(esc), COLON(:), INSERT(i)
+
+vim users ..> default ESC Mode
+
+esc ..> : 
+esc ..> i
+: ..> esc ..> i
+i ..> esc ..> :
+
+:q ..> quit
+:wq ..> write & quit
+:q! ..> force quit, don't save changes
+
+:set nu ..> set number to line
+:set nonu 
+
+Search ..> :/<word>, then press n to next word
+       ..> :?<word> //search from end of file
+
+Delete all data ..> :%d 
+
+Replace
+----...
+:s/original-value/new-value
+
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+Ex: :s/sbin/SBIN 
+daemon:x:1:1:daemon:/usr/SBIN:/usr/sbin/nologin
+Ex: :s/sbin/SBIN/g //g ..> global for Single line only
+daemon:x:1:1:daemon:/usr/SBIN:/usr/SBIN/nologin
+Ex: :3s/sbin/SBIN 
+bin:x:2:2:bin:/bin:/usr/SBIN/nologin
+Ex: :%s/sbin/SBIN/g
+Entire File sbin changes to SBIN
+
+ESC ..> Delete
+----....----..
+u ..> undo 
+d ..> delete 
+10d ..> delete 10th line
+gg ..> top of file
+shift+g ..> end of file 
+yy ..> copy 
+p ..> paste
+10p ..> paste 10 times
