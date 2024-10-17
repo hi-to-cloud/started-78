@@ -1,0 +1,131 @@
+Linux Commands
+----....----..
+
+Permissions
+----....---
+u ..> users
+g ..> user group
+o ..> others
+
+-rw-r--r-- ..> f1.txt
+drwx------ ..> devops
+- ..> file
+d ..> directory
+
+read ..> r ..> 4
+write ..> w ..> 2
+execute ..> x ..> 1
+
+Naveen is a Devops Engineer
+Neelima is a Developer
+
+rw- ..> Naveen
+r-- ..> Group Naveen belong to
+r-- ..> others ..> Neelima
+
+chmod o+w f1.txt ..> -rw-r--rw-
+chmod o-rwx f1.txt ..> -rw-r-----
+
+chmod 777 f1.txt ..> -rwxrwxrwx
+
+Linux Administration
+----....----....----
+sudo su ..> root access, landing folder /home/ubuntu
+sudo su - ..> root access, landing folder /root
+
+User Management
+----....----...
+Create User
+----....---
+useradd naveen
+id naveen
+uid=1001(naveen) gid=1001(naveen) groups=1001(naveen)
+
+cat /etc/passwd ..> list of users
+cat /etc/group  ..> list of groups
+
+Set Password for naveen
+----....----....----...
+passwd naveen
+
+Create devops group, add naveen to it
+----....----....----....----....----.
+groupadd devops
+groupadd test
+
+Note: Every User have atleast 1 Primary group and multiple Secondary groups
+
+Setup Primary Group
+----....----....---
+usermod -g devops naveen
+
+id naveen
+uid=1001(naveen) gid=1002(devops) groups=1002(devops)
+
+Setup Secondary Group
+----....----....----
+usermod -aG test naveen
+
+id naveen
+uid=1001(naveen) gid=1002(devops) groups=1002(devops),1003(test)
+
+Remove user from test group
+----....----....----....---
+gpasswd -d naveen test
+Removing user naveen from group test
+
+id naveen
+uid=1001(naveen) gid=1002(devops) groups=1002(devops)
+
+Employee Leaves Organization
+----....----....----....----
+1. Remove Secondary group's
+2. Add User to its own Primary group
+3. Delete User
+4. Check User Deleted or Not
+
+1. gpasswd -d naveen test
+2. usermod -g naveen naveen
+3. userdel naveen
+4. cat /etc/group | grep naveen, cat /etc/passwd | grep naveen
+id naveen
+id: 'naveen': no such user
+
+Note: if naveen was not attached to naveen group then naveen group will still exists.
+groupdel naveen
+
+Create User ..> NK
+----....----....--
+useradd NK 
+passwd NK
+
+Enable Password Authentication
+----....----....----....----..
+
+vim /etc/ssh/sshd_config
+    PasswordAuthentication yes
+
+systemctl restart sshd
+
+Login of EC2 with NK
+----....----....----
+ssh NK@xx.xx.xx.xx
+
+
+Setup Key Based Authentication
+----....----....----....----..
+cat /root/.ssh/authorized_keys 
+
+Linux Admin will ask Public Key for NK
+NK:
+---
+NK will generate Keys, give Public Key to Linux Admin
+
+Linux Admin:
+----....----
+cd /home/NK
+vim /home/NK/.ssh/authorized_keys
+Add Public Key in it
+chmod 600 /home/NK/.ssh/authorized_keys
+chown -R NK:NK /home/NK/.ssh
+chmod 700 /home/NK/.ssh
