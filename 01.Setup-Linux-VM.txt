@@ -1,0 +1,152 @@
+Authentication Vs Authorization
+----....----....----....----...
+Authentication ..> Provide Access Resource's
+Ex: Login to AWS Console
+
+Authentication can be done in 3 ways
+    - What you know ..> username, password
+    - What you have ..> PAT tokens, Keys
+    - What you are  ..> Finger-Prints, Palm, Face, ..etc
+
+Authorization ..> What Actions you can perform inside Resource's
+Ex: Create EC2, RDS, Security Groups, Key-Pair's
+
+Connect to Linux Server?
+----....----....----....
+Need to have Protocol, Port, Username, Password/Private-Key
+
+Authentication Should be done with help of Keys
+- Linux Server has Public Key
+- User has Private Key
+
+Protocols & Ports
+----....----....-
+- Open google.com with HTTP/HTTPS     ..> Public Access ..> Users
+- Connect to google servers with SSH  ..> Private Access ..> Developers
+
+HTTP: 80
+HTTPS: 443
+SSH: 22
+RDP: 3389
+
+No of Ports for Server? 65536 ..> 0 to 65535
+
+Generate Keys
+----....----.
+ssh-keygen --help 
+
+- Create Key with Filename ..> dont-touch
+ssh-keygen -f dont-touch
+
+Note: it will create 2 keys 
+dont-touch ..> rename to ..> dont-touch.pem  //Private Key
+dont-touch.pub //Public Key
+
+Public Key Format
+----....----....-
+ssh-rsa/ed25519 <random-code> laptop-username@laptop-name
+ed25519 ..> Algorithm used to Generate Keys
+rsa ..> Algorithm used to Generate Keys
+
+Upload Key in AWS
+----....----....-
+Upload Public Key to AWS, Keep Private Key as Safe
+
+Create Security-Group to allow traffic
+----....----....----....----....----..
+- Get IP from MY_PC_IP=https://whatismyipaddress.com/  //This Public IP Changes Every-time when PC Restart
+- Allow all traffic from MY_PC_IP to AWS
+
+Create Linux Server
+----....----....---
+- Create Linux Server with Above Created Key-Pair, Security-Group
+
+Connect to Linux Server
+----....----....----...
+ssh -i dont-touch.pem ubuntu@xx.xx.xx.xx
+
+Practice few Linux Commands
+----....----....----....---
+command-name <options> <inputs>
+
+Options ..> -<single-char> or --<word>
+Ex: ls -h 
+    ls --help
+
+absolute(complete) path & relative path
+cd .. --> relative path
+cd /home/ubuntu --> absolute
+
+pwd ..> present working directory
+cd ..> change directory 
+ls ..> list files
+
+Landing zone for user ..> /home/<user-name>
+ubuntu $ ..> $ ..> Normal User
+ubuntu # ..> # ..> Root User 
+/ ..> root directory
+
+ubuntu $ cd /
+ubuntu $ ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  swapfile  sys  tmp  usr  var
+
+ubuntu $ cd /root
+ubuntu $ ls
+filesystem  snap
+
+ls -l ..> list files in length format, a-z order
+ubuntu $ ls -l
+total 4
+lrwxrwxrwx 1 root root    1 Oct  7 09:51 filesystem -> /
+drwx------ 3 root root 4096 Oct 17 02:44 snap
+
+ls -lr ..> list files in length format, z-a order
+ubuntu $ ls -lr
+total 4
+drwx------ 3 root root 4096 Oct 17 02:44 snap
+lrwxrwxrwx 1 root root    1 Oct  7 09:51 filesystem -> /
+
+ls -lt  ..> list files based on time modified (recent modified first)
+ubuntu $ ls -lt 
+total 4
+drwx------ 3 root root 4096 Oct 17 02:44 snap
+lrwxrwxrwx 1 root root    1 Oct  7 09:51 filesystem -> /
+
+ls -lrt ..> list files based on time modified (recent modified last)
+ubuntu $ ls -lrt 
+total 4
+lrwxrwxrwx 1 root root    1 Oct  7 09:51 filesystem -> /
+drwx------ 3 root root 4096 Oct 17 02:44 snap
+
+ls -a ..> show Hidden files 
+ubuntu $ ls -a
+.  ..  .bash_history  .bashrc  .profile  .ssh  .theia  .vimrc  filesystem  snap
+
+CRUD
+----
+Create, Read, Update, Delete
+
+File's
+----..
+C ..> touch f1.txt, vi f1.txt, cat > f1.txt .... ctrl+d
+R ..> cat f1.txt
+U ..> vi f1.txt 
+D ..> rm f1.txt
+
+cat > f1.txt .... ctrl+d
+> ..> override text
+>> ..> append text
+
+Directory's
+----....---
+C ..> mkdir nk-tt 
+R ..> ls
+U ..> mv nk-tst nk-tst2, cp nk-tst nk-tst3
+D ..> rmdir nk-tt
+
+mkdir tst
+cd tst 
+touch tst.txt 
+cd ..
+rmdir tst // Fail bcs its not empty directory
+rm -r tst // delete tst & files inside it (recursively)
