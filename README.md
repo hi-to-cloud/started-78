@@ -19,3 +19,6 @@ https://portal.aws.amazon.com/billing/signup
 
 ### DevOps overview sessions
 https://www.youtube.com/watch?v=iO8qpPeiph0&list=PLbeIORXauosjypPNHf4YGeEKN3KlSjzOj
+
+### Expense Documentation
+https://github.com/daws-81s/expenses-documention

@@ -43,6 +43,7 @@ uid=1001(naveen) gid=1001(naveen) groups=1001(naveen)
 
 cat /etc/passwd ..> list of users
 cat /etc/group  ..> list of groups
+cat /etc/shadow ..> list of passwords
 
 Set Password for naveen
 ----....----....----...
