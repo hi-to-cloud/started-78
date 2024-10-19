@@ -49,3 +49,24 @@ $! ..> PID of last background command, Ex: sleep 60 & ..> run in background
 $PWD ..> current working directory
 $HOME ..> home directory of current user
 $HOSTNAME ..> hostname 
+
+Redirections
+----....----
+>  ..> override file
+>> ..> append to file
+
+override
+----....
+1> ..> only store success commands
+2> ..> only store failure commands
+&> ..> store both success & failure
+
+append
+----..
+1>> ..> only store success commands
+2>> ..> only store failure commands
+&>> ..> store both success & failure
+
+Ex:
+ls -l &>> out.log
+lss -l &>> out.log

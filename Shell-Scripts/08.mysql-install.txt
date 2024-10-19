@@ -1,0 +1,34 @@
+iteration: 1
+----....----
+c1: need to have root access to install mysql 
+    - check root user or not
+    - if root user ..> install
+    - else exit 
+
+exit status
+----....---
+exit 0 ..> success 
+exit 1 ..> general error (command not found)
+
+c2: if we got error shell script will not stop execution,execute next commands
+- we need to check exit status of previous command, if 0 ..> success, else failure
+
+More Duplicate lines in Code ..> will use functions
+
+c3: functions
+
+c4: append logs to file
+Time-stamp
+    date 
+    date +%F
+    date +%F-%H
+    date +%F-%H-%M
+    date +%F-%H-%M-%S
+Script-name
+    script-name: 08.mysql.sh
+    echo $0 | cut -d "." -f2 ..> mysql
+Log-file-storage
+    /tmp/mysql-2024-10-19-17-29.log
+push logs
+    - redirection ..> &>>
+
