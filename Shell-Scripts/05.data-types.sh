@@ -6,7 +6,7 @@ echo $NAME
 AGE1=30
 AGE2=40
 echo $(($AGE1 + $AGE2))
-
+echo $((${AGE1} + ${AGE2}))
 
 FRUITS=("Apple" "Banana" "Mango")
 echo "First value: ${FRUITS[0]}"
