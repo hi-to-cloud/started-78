@@ -7,3 +7,5 @@ if [ $NUMBER -gt 100 ]; then
 else
   echo "Given number $NUMBER is not greater than 100"
 fi
+
+# -gt, -lt, -eq, -ge, -le
