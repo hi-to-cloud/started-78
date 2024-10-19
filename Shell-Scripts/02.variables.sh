@@ -15,7 +15,7 @@ echo "------------------------------------------"
 DATE=$(date)
 echo "Script started executing: ${DATE}"
 
-DATE2=$(date + %F)
+DATE2=$(date +%F)
 echo "Script started executing: ${DATE2}"
 
 # o/p:-
