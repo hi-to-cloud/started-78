@@ -1,0 +1,31 @@
+Shell Scripting
+----....----...
+- Keep all commands in file with help of variables, loops, functions, conditions ..etc
+- Shell will interprets & execute shell scripts
+
+- Extension of script can be anything ..> .sh/.naveen/.hi ...etc
+
+Need for Shell Scripting ..> Automate repetitive tasks
+
+Upgrade the Server
+----....----...---
+- download new code
+- stop server
+- remove old code
+- copy new code to folder
+- start server
+
+will write a script for Upgrade the Server ..> if we need to upgrade server will run this script
+
+Errors ..> Shell Scripting 
+----....----...----....---
+- it will not stop when error occur
+- we need to check execution of previous command & exit if error occur
+
+First Line of Shell Script ..> #!/bin/bash ..> Shebang Notation
+Shebang ..> Location of interpreter, commands written inside shell script is interpreted and executed by this Shebang
+
+interpreter ..> execute code line-by-line 
+- Find errors as they execute each line
+- Stops and shows errors immediately when they occur
+- fix errors and continue running the rest of the code
