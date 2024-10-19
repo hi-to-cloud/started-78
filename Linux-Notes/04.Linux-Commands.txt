@@ -112,3 +112,89 @@ netstat -lt //list of tcp protocol
 netstat -ltp //list of tcp protocol with PID
 
 netstat -ltpn //list of tcp protocol with PID + port number
+
+Reload Service
+----....----..
+systemctl reload sshd
+
+inode ..> Index Node
+----....----....----
+- store metadata of a files/directories ..> file size, type, no of links, owner, groups, permissions
+- it will not store name of files/directories
+- number of inodes is fixed at the time the filesystem is created
+- filesystem can run out of inodes even if there is free disk space available ..> if we create many small files
+
+Check inode
+----....---
+df -i 
+    Filesystem                    Inodes IUsed   IFree IUse% Mounted on
+    devtmpfs                       80320   399   79921    1% /dev
+    tmpfs                          90820     1   90819    1% /dev/shm
+    tmpfs                         819200   662  818538    1% /run
+    /dev/mapper/RootVG-rootVol   3145728 55779 3089949    2% /
+    /dev/mapper/RootVG-homeVol    524288    16  524272    1% /home
+    /dev/mapper/RootVG-varVol    1048576  2021 1046555    1% /var
+    /dev/mapper/RootVG-logVol    1048576    38 1048538    1% /var/log
+    /dev/nvme0n1p3                249856   354  249502    1% /boot
+    /dev/nvme0n1p2                     0     0       0     - /boot/efi
+    /dev/mapper/RootVG-varTmpVol 1048576     9 1048567    1% /var/tmp
+    /dev/mapper/RootVG-auditVol  2306048     4 2306044    1% /var/log/audit
+    tmpfs                          18164    14   18150    1% /run/user/1001
+
+Increase inode
+----....----..
+creating a new filesystem with a higher inode count through reformatting ..> take backup of data
+
+Ex: ls -i 
+
+Hard Link VS Soft Link
+----....----....----..
+
+Soft Link 
+----....- 
+- shortcut ..> points to original file
+- inode will 'different' for original file & link file 
+- If you add data to the original file, the soft link will still point to it and display the updated content
+- if we remove original file ..> symlink will not work 
+- can link directories
+Ex: 
+touch f1.txt
+ln -s f1.txt f2.txt
+ls -li 
+    total 0
+    4372250 -rw-r--r-- 1 root root 0 Oct 19 15:10 f1.txt
+    4372251 lrwxrwxrwx 1 root root 6 Oct 19 15:10 f2.txt -> f1.txt
+
+rm f1.txt
+ls -li
+    total 0
+    4372251 lrwxrwxrwx 1 root root 6 Oct 19 15:10 f2.txt -> f1.txt  //RED COLOR
+cat f2.txt
+    cat: f2.txt: No such file or directory
+
+Hard Link 
+----....-
+- create another copy of original file
+- inode will 'same' for original file & link file 
+- cant link directories
+- any changes made to the original file will be reflected in all hard links associated with that inode
+- if we delete original file ..> still hard link works
+Ex: 
+touch f1.txt
+ln f1.txt f2.txt
+ls -li
+    total 8
+    4372250 -rw-r--r-- 2 root root 11 Oct 19 15:19 f1.txt
+    4372250 -rw-r--r-- 2 root root 11 Oct 19 15:19 f2.txt
+
+rm f1.txt
+ls -li
+    total 4
+    4372250 -rw-r--r-- 1 root root 11 Oct 19 15:19 f2.txt
+cat f2.txt
+    Hi
+
+Note: Soft Link will require additional Storage space for its metadata, bcs different inode 
+
+Use du -h to see how much space specific files or folders are using.
+Use df -h to see how much free space you have on your disks.
