@@ -37,3 +37,4 @@ bash f1.sh
 Execute Permission mandatory ..> ./f1.sh
 
 Note: Shell Script will not care much about Data-types
+
