@@ -38,3 +38,14 @@ Execute Permission mandatory ..> ./f1.sh
 
 Note: Shell Script will not care much about Data-types
 
+Special variables
+----....----....-
+$@ ..> print all variables passed to script at runtime, Ex: sh xx.sh NK NK1
+$# ..> print no of variables passed to script
+$0 ..> script name
+$? ..> previous command execute pass or fail ..> 0 if pass, non-zero failed
+$$ ..> PID of current shell script
+$! ..> PID of last background command, Ex: sleep 60 & ..> run in background
+$PWD ..> current working directory
+$HOME ..> home directory of current user
+$HOSTNAME ..> hostname 
