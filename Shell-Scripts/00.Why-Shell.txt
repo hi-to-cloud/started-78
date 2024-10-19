@@ -29,3 +29,11 @@ interpreter ..> execute code line-by-line
 - Find errors as they execute each line
 - Stops and shows errors immediately when they occur
 - fix errors and continue running the rest of the code
+
+Execute Shell 
+----....----.
+sh f1.sh
+bash f1.sh 
+Execute Permission mandatory ..> ./f1.sh
+
+Note: Shell Script will not care much about Data-types
