@@ -127,10 +127,24 @@ Forward Proxy
 Clients are aware of VPN, Server's not aware
 phone ..> VPN ..> OTT Platform 
 
+1. You can watch restricted content
+2. You can change Geo location
+3. client side proxy, only client is aware of proxy
+4. Hiding client identity
+5. Traffic monitor
+6. Secure connections
+7. Content access restriction
+8. We can use it for cache purpose
+
 Reverse Proxy
 ----....----.
 Servers are aware of Proxy, Clients are not aware
 Phone ..> nginx-proxy ..> FE ..> BE ..> DB
+
+1. Only Server is aware of proxy
+2. Security between clients and servers
+3. Act as load balancer..
+4. SSL termination ..> terminate client request at FE, not allow BE & DB
 
 Setup FE:
 ----....-
