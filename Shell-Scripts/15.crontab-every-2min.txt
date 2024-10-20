@@ -1,0 +1,26 @@
+crontab ..> scheduler for linux servers
+crontab -e ..> edit crontab
+
+# touch -d 20210101 sh.sh
+[ ec2-user@ip-172-31-8-196 /tmp/app-logs ]$ ls -l
+total 0
+-rw-r--r-- 1 ec2-user ec2-user 0 Jan  1  2021 cart.s
+-rw-r--r-- 1 ec2-user ec2-user 0 Jan  1  2021 sh.log
+-rw-r--r-- 1 ec2-user ec2-user 0 Jan  1  2021 sh.sh
+-rw-r--r-- 1 ec2-user ec2-user 0 Jan  1  2021 she.log
+
+Ex: Execute for Every 2min
+
+crontab -e
+*/2 * * * * sh /home/ec2-user/started-78/Shell-Scripts/14.delete-old-14-logs.sh
+
+crontab -l 
+    */2 * * * * sh /home/ec2-user/started-78/Shell-Scripts/14.delete-old-14-logs.sh
+
+tail -f /var/log/cron
+    Oct 20 13:20:01 ip-172-31-8-196 CROND[15090]: (ec2-user) CMD (sh /home/ec2-user/started-78/Shell-Scripts/14.delete-old-14-logs.sh)
+    Oct 20 13:20:01 ip-172-31-8-196 CROND[15089]: (ec2-user) CMDOUT (#033[32m Source directory exists #033[0m)
+    Oct 20 13:20:01 ip-172-31-8-196 CROND[15089]: (ec2-user) CMDOUT (/tmp/app-logs/sh.log /tmp/app-logs/she.log)
+    Oct 20 13:20:01 ip-172-31-8-196 CROND[15089]: (ec2-user) CMDOUT (Deleting file: /tmp/app-logs/sh.log)
+    Oct 20 13:20:01 ip-172-31-8-196 CROND[15089]: (ec2-user) CMDOUT (Deleting file: /tmp/app-logs/she.log)
+    Oct 20 13:20:01 ip-172-31-8-196 CROND[15089]: (ec2-user) CMDEND (sh /home/ec2-user/started-78/Shell-Scripts/14.delete-old-14-logs.sh)
