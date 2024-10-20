@@ -20,6 +20,7 @@ fi
 VALIDATE(){
    if [ $1 -ne 0 ]
    then
+        # without '-e' colors will not execute
         echo -e "$2...$R FAILURE $N"
         exit 1
     else
