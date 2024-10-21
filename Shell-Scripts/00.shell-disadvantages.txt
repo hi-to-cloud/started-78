@@ -7,3 +7,15 @@ Shell Disadvantages
 - tough if we have more servers ..> 100 servers, we cant execute script by login into server
 
 Solution: Ansible
+
+RHEL-9 to Centos-8
+----....----....--
+ssh centos@xx.xx.xx.xx -C "echo Hi From RHEL-9 > /tmp/hi.txt"
+centos@xx.xx.xx.xx's password: 
+
+login to centos & cat /tmp/hi.txt
+
+ssh centos@xx.xx.xx.xx -C "curl https://raw.githubusercontent.com/hi-to-cloud/started-78/refs/heads/main/Shell-Scripts/08.mysql-install.sh | sudo bash"
+centos@xx.xx.xx.xx's password: 
+
+login to centos & check mysql running
