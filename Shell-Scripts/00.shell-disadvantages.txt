@@ -1,0 +1,9 @@
+Shell Disadvantages
+----....----....---
+- no idempotence
+- hard to understand
+- single script will not work for all Linux Flavors ..> Homogenous
+- no error handling -- continue when error comes
+- tough if we have more servers ..> 100 servers, we cant execute script by login into server
+
+Solution: Ansible
