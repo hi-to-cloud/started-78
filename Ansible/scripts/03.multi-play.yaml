@@ -1,0 +1,17 @@
+- name: ping local host
+  hosts: localhost
+  tasks:
+  - name: ping localhost
+    ping:
+  - name: print localhost
+    debug
+      msg: "Hi From localhost"
+
+- name: ping node
+  hosts: node
+  tasks:
+  - name: ping node
+    ping:
+  - name: print node
+    debug: 
+      msg: "Hi From node"
