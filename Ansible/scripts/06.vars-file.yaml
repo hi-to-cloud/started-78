@@ -1,0 +1,8 @@
+- name: variables from file level
+  hosts: node
+  vars_files:
+    - 06.var-file.yml
+  tasks:
+  - name: print inside node
+    ansible.builtin.debug:
+      msg: "I'm {{NAME}} with Age:{{AGE}}"
