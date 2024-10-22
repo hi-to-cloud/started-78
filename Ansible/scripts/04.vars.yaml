@@ -4,6 +4,6 @@
     NAME: "Naveen"
     AGE: 23
   tasks:
-  - name: Say Hi From Web
+  - name: print inside node
     ansible.builtin.debug:
       msg: "I'm {{NAME}} with Age:{{AGE}}"
