@@ -5,6 +5,7 @@ Shell Disadvantages
 - single script will not work for all Linux Flavors ..> Homogenous
 - no error handling -- continue when error comes
 - tough if we have more servers ..> 100 servers, we cant execute script by login into server
+- imperative type of programming ..> remember commands
 
 Solution: Ansible
 
