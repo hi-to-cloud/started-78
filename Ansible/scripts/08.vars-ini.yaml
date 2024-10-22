@@ -1,0 +1,6 @@
+- name: variables from inventory level
+  hosts: node
+  tasks:
+  - name: print inside node
+    ansible.builtin.debug:
+      msg: "I'm {{NAME}} with Age:{{AGE}}"
