@@ -1,8 +1,15 @@
 ### inventory
-group of servers, list of hosts\
+group of servers, list of hosts
+
 inventory.ini
 ```
 192.168.34.2 #ungrouped
+
+[backend] #grouped as backend
+192.168.34.2
+192.168.34.4
+192.168.34.3
+192.168.34.65
 
 [node] #grouped as node
 node.step-into-iot.cloud
