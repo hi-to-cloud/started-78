@@ -1,0 +1,19 @@
+- name: tags
+  hosts: node
+  become: true
+  tasks:
+  - name: install tree
+    package:
+      name: tree
+      state: present
+    tags: tree
+  - name: install git
+    package:
+      name: git
+      state: present
+    tags: git
+  - name: install docker
+    package:
+      name: docker
+      state: present
+    tags: docker
